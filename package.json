@@ -1,0 +1,28 @@
+{
+  "name": "products",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npx parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "server": "npx json-server products.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v0ts/products.git"
+  },
+  "keywords": [],
+  "author": "VoTs <cybulskij2011@ukr.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/v0ts/products/issues"
+  },
+  "homepage": "https://github.com/v0ts/products#readme",
+  "dependencies": {
+    "gh-pages": "^6.3.0",
+    "json-server": "^1.0.0-beta.3",
+    "parcel": "^2.13.3"
+  }
+}

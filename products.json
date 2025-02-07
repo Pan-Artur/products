@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "name": "kiwi",
+      "price": 150,
+      "image": "https://orchardfruit.com/cdn/shop/files/Kiwi-1-Piece-The-Orchard-Fruit-72138634.jpg?v=1722937878&width=1214",
+      "id": "292b"
+    },
+    {
+      "name": "banana",
+      "price": 100,
+      "image": "https://www.rainforest-alliance.org/wp-content/uploads/2021/06/bananas-1-e1624909301641.jpg.optimal.jpg",
+      "id": "dac5"
+    },
+    {
+      "name": "grape",
+      "price": 125,
+      "image": "https://www.thespruceeats.com/thmb/l1_lV7wgpqRArWBwpG3jzHih_e8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-are-grapes-5193263-hero-01-80564d77b6534aa8bfc34f378556e513.jpg",
+      "id": "1da3"
+    }
+  ]
+}

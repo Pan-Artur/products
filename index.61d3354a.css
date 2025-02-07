@@ -1,0 +1,273 @@
+body {
+  padding-top: 10px;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.is-hidden {
+  opacity: 0;
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.add-product {
+  cursor: pointer;
+  background-color: #fcaa4c;
+  border: 2px solid #000;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+  transition: all .3s ease-in-out;
+  display: flex;
+}
+
+.add-product:hover {
+  opacity: .8;
+}
+
+.products-name {
+  font-size: 23px;
+}
+
+.products-item {
+  background-color: #feadad;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 5px;
+  display: flex;
+  box-shadow: 2px 3px 10px 2px #d3d3d3;
+}
+
+.products-image {
+  object-fit: cover;
+  border: 2px solid #000;
+  border-radius: 20px;
+  width: 250px;
+  height: 250px;
+}
+
+.products-list {
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 990px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.item-button {
+  cursor: pointer;
+  background-color: bisque;
+  border: 2px solid #000;
+  border-radius: 5px;
+  width: 100px;
+  margin-top: 5px;
+  font-weight: 700;
+  transition: opacity .3s, visibility .3s;
+}
+
+.item-button:hover {
+  opacity: .8;
+}
+
+.backdrop {
+  background: #000c;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  background-color: #faf487;
+  width: 400px;
+  height: 370px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+}
+
+.form__list {
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.form__item {
+  flex-direction: column;
+  gap: 5px;
+  display: flex;
+}
+
+.form__item label {
+  color: #333;
+  font-weight: 600;
+}
+
+.form__item input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  transition: border-color .3s;
+}
+
+.form__item input:focus {
+  border-color: #007bff;
+}
+
+.form__submit {
+  color: #fff;
+  cursor: pointer;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  transition: background-color .3s;
+}
+
+.form__submit:hover {
+  background-color: #218838;
+}
+
+.modal__close {
+  color: #fff;
+  cursor: pointer;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  transition: background-color .3s;
+}
+
+.modal__close:hover {
+  background-color: #c82333;
+}
+
+.edit-backdrop {
+  background: #000c;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity .3s, visibility .3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.edit-modal {
+  background-color: #64c5fd;
+  width: 400px;
+  height: 360px;
+  padding: 10px;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.edit-form {
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+}
+
+.edit-form__list {
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.edit-form__item {
+  flex-direction: column;
+  gap: 5px;
+  display: flex;
+}
+
+.edit-form__item label {
+  color: #333;
+  font-weight: 600;
+}
+
+.edit-form__item input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  transition: border-color .3s;
+}
+
+.edit-form__item input:focus {
+  border-color: #007bff;
+}
+
+.edit-form__btn-send-data {
+  color: #fff;
+  cursor: pointer;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  transition: background-color .3s;
+}
+
+.edit-form__btn-send-data:hover {
+  background-color: #218838;
+}
+
+.close-edit-modal {
+  color: #fff;
+  cursor: pointer;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  transition: background-color .3s;
+}
+
+.close-edit-modal:hover {
+  background-color: #c82333;
+}
+
+.end-edit-button {
+  width: 100%;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=index.61d3354a.css.map */

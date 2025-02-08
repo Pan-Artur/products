@@ -24,7 +24,6 @@ export const openModal = () => {
   const formEl = document.querySelector(".edit-form__info");
 
   formEl.addEventListener("submit", async (e) => {
-    e.preventDefault();
     editModalEl.classList.add("is-hidden");
     document.body.classList.remove("no-scroll");
 

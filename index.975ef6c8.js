@@ -632,10 +632,10 @@ const getProductsAPI = async ()=>{
     try {
         response = await fetch("https://67a69122510789ef0dfbb742.mockapi.io/products/products");
         data = await response.json();
+        return data;
     } catch (error) {
         console.error(error);
     }
-    return data;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports,__globalThis) {
@@ -674,6 +674,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createMarkupProducts", ()=>createMarkupProducts);
 const createMarkupProducts = (data)=>{
     const listEl = document.querySelector(".products-list");
+    listEl.innerHTML = "";
     const markup = data.map(({ id, name, price, image })=>`
     <li class="products-item" id="${id}">
         <h3 class="products-name">${name}</h3>
@@ -753,12 +754,15 @@ const openModal = ()=>{
         const productToEdit = {
             name: `${formEl.elements.name.value}`,
             price: `${formEl.elements.price.value}`,
-            img: `${formEl.elements.img.value}`
+            image: `${formEl.elements.image.value}`
         };
         try {
             await (0, _editProductApi.editProductsAPI)(productToEdit, parentId);
             const data = await (0, _getProductsApi.getProductsAPI)();
             (0, _layoutProducts.createMarkupProducts)(data);
+            formEl.elements.name.value = "";
+            formEl.elements.price.value = "";
+            formEl.elements.image.value = "";
             (0, _deletingProduct.deleteProduct)();
             openModal();
         } catch (error) {
@@ -789,6 +793,11 @@ const editProductsAPI = async (editedData, editedProductId)=>{
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2YeJ6":[function(require,module,exports,__globalThis) {
+var _addProductApi = require("../services/addProductApi");
+var _getProductsApi = require("../services/getProductsApi");
+var _layoutProducts = require("../layoutProducts");
+var _deletingProduct = require("../deletingProduct");
+var _editProductModal = require("./editProductModal");
 const modalEl = document.querySelector(".backdrop");
 const formEl = document.querySelector(".form");
 const openButtonEl = document.querySelector(".button");
@@ -808,51 +817,25 @@ formEl.addEventListener("submit", async (e)=>{
     modalEl.classList.add("is-hidden");
     document.body.classList.remove("no-scroll");
     const productToAdd = {
-        name: formEl.elements.name.value,
-        price: formEl.elements.price.value,
-        img: formEl.elements.img.value
-    };
-    try {
-        await addProductAPI(productToAdd);
-        const data = await getProductsAPI();
-        createMarkupProducts(data);
-        deleteProduct();
-        openModal();
-    } catch (error) {
-        console.error(error);
-    }
-});
-
-},{}],"3a9PZ":[function(require,module,exports,__globalThis) {
-var _addProductApi = require("../services/addProductApi");
-var _getProductsApi = require("../services/getProductsApi");
-var _layoutProducts = require("../layoutProducts");
-var _deletingProduct = require("../deletingProduct");
-var _editProductModal = require("./editProductModal");
-const formEl = document.querySelector(".form");
-const modalEl = document.querySelector(".backdrop");
-formEl.addEventListener("submit", async (e)=>{
-    e.preventDefault();
-    modalEl.classList.add(".is-hidden");
-    document.body.classList.remove("no-scroll");
-    const productDataToAdd = {
         name: `${formEl.elements.name.value}`,
         price: `${formEl.elements.price.value}`,
         image: `${formEl.elements.image.value}`
     };
     try {
-        (0, _addProductApi.addProduct)(productDataToAdd);
+        await (0, _addProductApi.addProduct)(productToAdd);
         const data = await (0, _getProductsApi.getProductsAPI)();
         (0, _layoutProducts.createMarkupProducts)(data);
+        formEl.elements.name.value = "";
+        formEl.elements.price.value = "";
+        formEl.elements.image.value = "";
         (0, _deletingProduct.deleteProduct)();
         (0, _editProductModal.openModal)();
     } catch (error) {
         console.error(error);
     }
 });
-(0, _getProductsApi.getProductsAPI)();
 
-},{"../services/addProductApi":"hwNgE","../services/getProductsApi":"77vlQ","../layoutProducts":"gdYCx","../deletingProduct":"diZly","./editProductModal":"kIgHJ"}],"hwNgE":[function(require,module,exports,__globalThis) {
+},{"../services/getProductsApi":"77vlQ","../layoutProducts":"gdYCx","../deletingProduct":"diZly","../services/addProductApi":"hwNgE","./editProductModal":"kIgHJ"}],"hwNgE":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addProduct", ()=>addProduct);
@@ -873,6 +856,37 @@ const addProduct = async (addData)=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["9mu7C","8lqZg"], "8lqZg", "parcelRequire94c2")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3a9PZ":[function(require,module,exports,__globalThis) {
+var _addProductApi = require("../services/addProductApi");
+var _getProductsApi = require("../services/getProductsApi");
+var _layoutProducts = require("../layoutProducts");
+var _deletingProduct = require("../deletingProduct");
+var _editProductModal = require("./editProductModal");
+const formEl = document.querySelector(".form");
+const modalEl = document.querySelector(".backdrop");
+formEl.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    modalEl.classList.add(".is-hidden");
+    document.body.classList.remove("no-scroll");
+    const productDataToAdd = {
+        name: `${formEl.elements.name.value}`,
+        price: `${formEl.elements.price.value}`,
+        image: `${formEl.elements.image.value}`
+    };
+    try {
+        const data = await (0, _getProductsApi.getProductsAPI)();
+        (0, _layoutProducts.createMarkupProducts)(data);
+        formEl.elements.name.value = "";
+        formEl.elements.price.value = "";
+        formEl.elements.image.value = "";
+        (0, _deletingProduct.deleteProduct)();
+        (0, _editProductModal.openModal)();
+    } catch (error) {
+        console.error(error);
+    }
+});
+(0, _getProductsApi.getProductsAPI)();
+
+},{"../services/addProductApi":"hwNgE","../services/getProductsApi":"77vlQ","../layoutProducts":"gdYCx","../deletingProduct":"diZly","./editProductModal":"kIgHJ"}]},["9mu7C","8lqZg"], "8lqZg", "parcelRequire94c2")
 
 //# sourceMappingURL=index.975ef6c8.js.map

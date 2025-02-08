@@ -1,5 +1,5 @@
 const modalEl = document.querySelector(".backdrop");
-const formButtonEl = document.querySelector(".form__submit");
+const formEl = document.querySelector(".form");
 const openButtonEl = document.querySelector(".button");
 const closeButtonEl = document.querySelector(".modal__close");
 
@@ -15,9 +15,28 @@ closeButtonEl.addEventListener("click", (e) => {
   document.body.classList.remove("no-scroll");
 });
 
-formButtonEl.addEventListener("click", (e) => {
+formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
-  console.log("Form button clicked");
+
   modalEl.classList.add("is-hidden");
   document.body.classList.remove("no-scroll");
+
+  const productToAdd = {
+    name: formEl.elements.name.value,
+    price: formEl.elements.price.value,
+    img: formEl.elements.img.value,
+  };
+
+  try {
+    await addProductAPI(productToAdd);
+
+    const data = await getProductsAPI();
+
+    createMarkupProducts(data);
+
+    deleteProduct();
+    openModal();
+  } catch (error) {
+    console.error(error);
+  }
 });

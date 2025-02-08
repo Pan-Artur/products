@@ -8,7 +8,7 @@ export const editProductsAPI = async (editedData, editedProductId) => {
       },
     };
     
-    const response = await fetch(`https://67a69122510789ef0dfbb742.mockapi.io/products/products${editedProductId}`, options);
+    const response = await fetch(`https://67a69122510789ef0dfbb742.mockapi.io/products/products/${editedProductId}`, options);
     const data = await response.json();
 
     return data;

@@ -2,6 +2,17 @@
   "name": "products",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/Pan-Artur/products#readme",
+  "bugs": {
+    "url": "https://github.com/Pan-Artur/products/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pan-Artur/products.git"
+  },
+  "license": "ISC",
+  "author": "Artur Pankovets",
+  "type": "commonjs",
   "scripts": {
     "start": "npx parcel src/index.html --no-cache",
     "build": "parcel build src/index.html --public-url ./ --no-cache",
@@ -9,17 +20,6 @@
     "predeploy": "npm run build",
     "server": "npx json-server products.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pan-Artur/products.git"
-  },
-  "keywords": [],
-  "author": "Artur Pankovets",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Pan-Artur/products/issues"
-  },
-  "homepage": "https://github.com/Pan-Artur/products#readme",
   "dependencies": {
     "gh-pages": "^6.3.0",
     "json-server": "^1.0.0-beta.3",

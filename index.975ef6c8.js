@@ -747,7 +747,6 @@ const openModal = ()=>{
     });
     const formEl = document.querySelector(".edit-form__info");
     formEl.addEventListener("submit", async (e)=>{
-        e.preventDefault();
         editModalEl.classList.add("is-hidden");
         document.body.classList.remove("no-scroll");
         const productToEdit = {
@@ -790,6 +789,7 @@ const editProductsAPI = async (editedData, editedProductId)=>{
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2YeJ6":[function(require,module,exports,__globalThis) {
 const modalEl = document.querySelector(".backdrop");
+const formButtonEl = document.querySelector(".form__submit");
 const openButtonEl = document.querySelector(".button");
 const closeButtonEl = document.querySelector(".modal__close");
 openButtonEl.addEventListener("click", (e)=>{
@@ -799,6 +799,12 @@ openButtonEl.addEventListener("click", (e)=>{
 });
 closeButtonEl.addEventListener("click", (e)=>{
     e.preventDefault();
+    modalEl.classList.add("is-hidden");
+    document.body.classList.remove("no-scroll");
+});
+formButtonEl.addEventListener("click", (e)=>{
+    e.preventDefault();
+    console.log("Form button clicked");
     modalEl.classList.add("is-hidden");
     document.body.classList.remove("no-scroll");
 });

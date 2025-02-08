@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/v0ts/products.git"
+    "url": "git+https://github.com/Pan-Artur/products.git"
   },
   "keywords": [],
   "author": "Artur Pankovets",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/v0ts/products/issues"
+    "url": "https://github.com/Pan-Artur/products/issues"
   },
-  "homepage": "https://github.com/v0ts/products#readme",
+  "homepage": "https://github.com/Pan-Artur/products#readme",
   "dependencies": {
     "gh-pages": "^6.3.0",
     "json-server": "^1.0.0-beta.3",

@@ -753,7 +753,6 @@ const openModal = ()=>{
         const productToEdit = {
             name: `${formEl.elements.name.value}`,
             price: `${formEl.elements.price.value}`,
-            description: `${formEl.elements.description.value}`,
             img: `${formEl.elements.img.value}`
         };
         try {

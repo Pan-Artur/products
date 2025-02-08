@@ -1,3 +1,9 @@
+import { addProduct } from "../services/addProductApi";
+import { getProductsAPI } from "../services/getProductsApi";
+import { createMarkupProducts } from "../layoutProducts";
+import { deleteProduct } from "../deletingProduct";
+import { openModal } from "./editProductModal";
+
 const modalEl = document.querySelector(".backdrop");
 const formEl = document.querySelector(".form");
 const openButtonEl = document.querySelector(".button");
@@ -22,17 +28,21 @@ formEl.addEventListener("submit", async (e) => {
   document.body.classList.remove("no-scroll");
 
   const productToAdd = {
-    name: formEl.elements.name.value,
-    price: formEl.elements.price.value,
-    img: formEl.elements.img.value,
+    name: `${formEl.elements.name.value}`,
+    price: `${formEl.elements.price.value}`,
+    image: `${formEl.elements.image.value}`,
   };
 
   try {
-    await addProductAPI(productToAdd);
+    await addProduct(productToAdd);
 
     const data = await getProductsAPI();
 
     createMarkupProducts(data);
+
+    formEl.elements.name.value = "";
+    formEl.elements.price.value = "";
+    formEl.elements.image.value = "";
 
     deleteProduct();
     openModal();

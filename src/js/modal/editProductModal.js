@@ -31,7 +31,7 @@ export const openModal = () => {
     const productToEdit = {
       name: `${formEl.elements.name.value}`,
       price: `${formEl.elements.price.value}`,
-      img: `${formEl.elements.img.value}`,
+      image: `${formEl.elements.image.value}`,
     };
 
     try {
@@ -40,6 +40,11 @@ export const openModal = () => {
       const data = await getProductsAPI();
 
       createMarkupProducts(data);
+
+      formEl.elements.name.value = "";
+      formEl.elements.price.value = "";
+      formEl.elements.image.value = "";
+
       deleteProduct();
       openModal();
     } catch(error) {

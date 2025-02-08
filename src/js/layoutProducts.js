@@ -1,5 +1,6 @@
 export const createMarkupProducts = (data) => {
     const listEl = document.querySelector(".products-list");
+    listEl.innerHTML = "";
     
     const markup = data.map(({ id, name, price, image }) => `
     <li class="products-item" id="${id}">

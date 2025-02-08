@@ -19,11 +19,14 @@ formEl.addEventListener("submit", async (e) => {
   };
 
   try {
-    addProduct(productDataToAdd);
-
     const data = await getProductsAPI();
 
     createMarkupProducts(data);
+
+    formEl.elements.name.value = "";
+    formEl.elements.price.value = "";
+    formEl.elements.image.value = "";
+
     deleteProduct();
     openModal();
   } catch(error) {
